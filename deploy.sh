@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-server=ubuntu@116.203.76.251
+server=root@116.203.76.251
 
-scp -r . $server:~/laas
-ssh $server "forever restart dist/server.ts"
+scp -pr ./src $server:~/laas
+scp package.json package-lock.json build.sh tsconfig.json $server:~/laas
+ssh $server "cd laas && ./build.sh"
+ssh $server "forever stop ~/laas/dist/server.js"
+ssh $server "forever start ~/laas/dist/server.js"

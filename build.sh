@@ -1,4 +1,4 @@
 npm ci
-tsc
+npx tsc
 cp src/index.html dist/index.html
 

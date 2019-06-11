@@ -68,7 +68,7 @@ app.post('/api/compile', function (req, res) {
 
 });
 
-const port = process.argv[2] || 46536;
+const port = process.argv[2] || 80;
 app.listen(port, function () {
   console.log(`server started on ${port}`);
 });
